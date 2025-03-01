@@ -1,20 +1,13 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import './style.css'
 import App from './App.vue'
 import router from "./router.ts";
 
+const pinia = createPinia()
 const app = createApp(App)
 
-let socket = new WebSocket("ws://127.0.0.1:5000/ws-stuff/rooms");
 
-socket.onopen =  () => {
-    console.log("im open")
-}
-
-
-
-app.config.globalProperties.$socket = socket;
-
-app.use(router).mount('#app')
+app.use(router).use(pinia).mount('#app')
 
 
