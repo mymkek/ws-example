@@ -1,8 +1,12 @@
 <template>
-  <div v-if="socketStore.isConnected">
-    <CallWidget />
-    <ChatWidget />
-  </div>
+  <RoomLayout v-if="socketStore.isConnected">
+    <template #left>
+      <CallWidget/>
+    </template>
+    <template #right>
+      <ChatWidget/>
+    </template>
+  </RoomLayout>
   <div v-else>
     Loading...
   </div>
@@ -14,6 +18,7 @@ import CallWidget from "@/widgets/lesson-call/CallWidget.vue";
 import ChatWidget from "@/widgets/lesson-chat/ChatWidget.vue";
 import {useWebSocketStore} from "@/shared/ws-connection.js";
 import {onMounted} from "vue";
+import RoomLayout from "@/pages/lesson-room/ui/RoomLayout.vue";
 
 const socketStore = useWebSocketStore();
 

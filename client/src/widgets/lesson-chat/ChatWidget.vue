@@ -1,6 +1,12 @@
 <template>
-  <div class="text-3xl font-bold underline">
+  <div class="h-full bg-primary-500">
     ChatWidget
+    <div>
+      ouptup
+    </div>
+    <div>
+      inpput
+    </div>
   </div>
 </template>
 
